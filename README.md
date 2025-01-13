@@ -13,7 +13,7 @@ This library enables Arduino-based LCD displays to render Arabic text. It handle
 
 Key features include support for all common Arabic characters and ligatures (e.g., Lam-Alef), right-to-left text alignment, and an easy-to-use API for integrating Arabic text into Arduino projects. It is designed for Arduino enthusiasts, educators, and developers who need to display Arabic text on LCD screens for projects like signage, information displays, or educational tools.
 
-Give it a try and let us know how it works for your project! Contributions and feedback are always welcome.
+Contributions and feedback are always welcome.
 
 ---
 
