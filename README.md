@@ -20,9 +20,10 @@ Contributions and feedback are always welcome.
 ## Features
 
 - Supports rendering Arabic text on LCD displays (such as 16x2 or 20x4).
+- Allows writing Arabic `String` directly in the code (e.g., ```lcd.printArabic("نص عربي")```).
 - A custom-designed Arabic font that fits within the constraints of 8x5 pixels for each character.
-- Handles right-to-left text alignment and character shaping.
 - Supports all common Arabic characters and ligatures (e.g., Lam-Alef).
+- Handles right-to-left text alignment and character shaping.
 - Easy-to-use API for integrating Arabic text into Arduino projects.
 - Lightweight and optimized for low-memory microcontrollers.
 - Available in two versions: **I2C** and **normal (parallel)** LCD displays.
