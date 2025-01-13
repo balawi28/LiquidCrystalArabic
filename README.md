@@ -3,9 +3,9 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
 
-This library enables Arduino-based LCD displays to render Arabic text. It handles Arabic script's unique characteristics, such as right-to-left writing, character shaping, and connectivity rules. Perfect for projects requiring Arabic text output on LCD screens.
+This library enables Arduino-based boards to control Hitachi HD44780LCD or any other LCD with a compatible chipset. It handles Arabic script's unique characteristics, such as right-to-left writing, character shaping, and connectivity rules. Perfect for projects requiring Arabic text output on LCD screens.
 
-**Note:** This library comes in two versions—one for I2C LCD displays and one for normal (parallel) LCD displays. Choose the version that matches your hardware setup.
+**Note:** This library comes in two versions—one for I2C LCD displays and one for normal (parallel) LCD displays. Choose the version that matches your hardware setup. The I2C version of the library extends [LiquidCrystal I2C](https://docs.arduino.cc/libraries/liquidcrystal-i2c) by `Frank de Brabander`, while the normal version extends  [LiquidCrystal](https://docs.arduino.cc/libraries/liquidcrystal) by `Arduino, Adafruit`.
 
 ---
 
