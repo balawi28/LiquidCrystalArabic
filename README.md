@@ -6,8 +6,6 @@
 
 This library allows Arduino-based boards to render Arabic text on Hitachi HD44780 LCDs (or compatible chipsets), managing its unique characteristics such as right-to-left writing, character shaping, and connection rules.
 
-**Note:** This library comes in two versions, `LiquidCrystalArabic_I2C.h` for I2C LCD displays and `LiquidCrystalArabic.h` for normal (parallel) LCD displays. Choose the version that matches your hardware setup. The I2C version of the library extends [LiquidCrystal I2C](https://docs.arduino.cc/libraries/liquidcrystal-i2c) by `Frank de Brabander`, while the normal version extends  [LiquidCrystal](https://docs.arduino.cc/libraries/liquidcrystal) by `Arduino, Adafruit`.
-
 ---
 
 ## Description
@@ -15,6 +13,27 @@ This library allows Arduino-based boards to render Arabic text on Hitachi HD4478
 Key features include support for all common Arabic characters and ligatures (e.g., Lam-Alef), right-to-left text alignment, and an easy-to-use API for integrating Arabic text into Arduino projects. It is designed for Arduino enthusiasts, educators, and developers who need to display Arabic text on LCD screens for projects like signage, information displays, or educational tools.
 
 Contributions and feedback are always welcome.
+
+---
+
+## Dependencies
+
+This library comes in **two versions**, each tailored for specific hardware setups:
+
+1. **`LiquidCrystalArabic_I2C.h`**:  
+   - Designed for **I2C LCD displays**.  
+   - Extends the [LiquidCrystal I2C](https://docs.arduino.cc/libraries/liquidcrystal-i2c) library by **Frank de Brabander**.  
+   - Use this version if your LCD is connected via I2C.
+
+2. **`LiquidCrystalArabic.h`**:  
+   - Designed for **normal (parallel) LCD displays**.  
+   - Extends the [LiquidCrystal](https://docs.arduino.cc/libraries/liquidcrystal) library by **Arduino, Adafruit**.  
+   - Use this version if your LCD is connected via parallel pins.
+
+
+### Installation:
+- Install the required base library (`LiquidCrystal I2C` or `LiquidCrystal`) before using this library.  
+- The base libraries can be installed via the Arduino Library Manager. If multiple libraries with the same name exist, ensure you select the correct one by verifying the author's name.
 
 ---
 
