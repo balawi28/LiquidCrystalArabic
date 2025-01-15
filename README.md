@@ -17,6 +17,118 @@ Contributions and feedback are always welcome.
 
 ---
 
+## Features
+
+- Supports rendering Arabic text on LCD displays (such as 16x2 or 20x4).
+- Allows writing Arabic `String` directly in the code (e.g., ```lcd.printArabic("نص عربي")```).
+- A custom-designed Arabic font that fits within the constraints of 8x5 pixels for each character.
+- Supports all common Arabic characters and ligatures (e.g., Lam-Alef).
+- Handles right-to-left text alignment and character shaping.
+- Easy-to-use API for integrating Arabic text into Arduino projects.
+- Lightweight and optimized for low-memory microcontrollers.
+- Available in two versions: **I2C** and **normal (parallel)** LCD displays.
+
+---
+
+## Limitations
+- **8-Character** Limit: LCD displays typically support only 8 custom characters at a time (see the **"Handling the 8-Character Limit"** section below).
+
+---
+
+## Usage
+
+The `printArabic` function is the core method for displaying Arabic text on the LCD. It handles right-to-left text alignment, character shaping, and ligatures. Below is a detailed explanation of its parameters and usage:
+
+### Function Signature:
+```cpp
+void printArabic(String text, bool isRomanized=false, bool useLigatures=true);
+```
+
+### Arabic Text Input
+The library supports direct Arabic text input in the Arduino IDE. You can write Arabic strings directly in your code, and the library will handle the rendering on the LCD. For example:
+```cpp
+lcd.printArabic("اللغة العربية"); // Direct Arabic text input
+```
+
+### Demo Usage Example:
+```cpp
+#include "LiquidCrystalArabic_I2C.h"
+
+LiquidCrystalArabic lcd(0x27, 16, 2);
+
+void setup() {
+    lcd.init();           
+    lcd.backlight();
+    lcd.printArabic("اللغة العربية");
+}
+
+void loop() {}
+```
+
+### Romanized Arabic Fallback
+If your IDE or compiler has issues with direct Arabic text (e.g., syntax or compilation errors), you can use Romanized Arabic as an alternative. The library includes a built-in mapping of Romanized characters to their corresponding Arabic Unicode values. Simply pass the Romanized text and set the isRomanized parameter to true:
+
+For example:
+```cpp
+#include "LiquidCrystalArabic_I2C.h"
+
+LiquidCrystalArabic lcd(0x27, 16, 2);
+
+void setup() {
+    Serial.begin(9600);
+    lcd.init();           
+    lcd.backlight();
+    lcd.printArabic("allGo alArbeo", true);
+}
+
+void loop() {}
+```
+
+#### Romanized Arabic Mapping
+The following mapping is used to convert Romanized characters to Arabic:
+
+| **Romanized Character** | **Arabic Letter** |
+|--------------------------|-------------------|
+| `a`                      | ا                 |
+| `b`                      | ب                 |
+| `t`                      | ت                 |
+| `T`                      | ث                 |
+| `j`                      | ج                 |
+| `H`                      | ح                 |
+| `K`                      | خ                 |
+| `d`                      | د                 |
+| `Z`                      | ذ                 |
+| `r`                      | ر                 |
+| `z`                      | ز                 |
+| `s`                      | س                 |
+| `V`                      | ش                 |
+| `X`                      | ص                 |
+| `x`                      | ض                 |
+| `P`                      | ط                 |
+| `p`                      | ظ                 |
+| `A`                      | ع                 |
+| `G`                      | غ                 |
+| `f`                      | ف                 |
+| `q`                      | ق                 |
+| `k`                      | ك                 |
+| `l`                      | ل                 |
+| `m`                      | م                 |
+| `n`                      | ن                 |
+| `h`                      | ه                 |
+| `w`                      | و                 |
+| `e`                      | ي                 |
+| `c`                      | ء                 |
+| `W`                      | آ                 |
+| `u`                      | ى                 |
+| `U`                      | أ                 |
+| `O`                      | ؤ                 |
+| `Y`                      | ئ                 |
+| `M`                      | ـ (Kashida)       |
+| `o`                      | ة                 |
+| `i`                      | إ                 |
+
+---
+
 ## Handling the 8-Character Limit
 
 LCD displays typically support only **8 custom characters** at a time, which is a challenge for rendering Arabic text due to its many character forms, where each letter has different forms (e.g., "هـ" vs. "ـهـ" vs. "ـه" vs. "ه"). Here’s how the library makes the best use of this limitation:
@@ -50,14 +162,3 @@ For the text `"بلادي بلا حروب وحصار"`, the library:
 | **حـ**              | Initial form      | Already defined in a previous step             | -        |
 
 3. **Stop at 8 characters**: The next letters (**ـصـ** and **ـا** and **ر**) cannot be displayed because the 8-character limit is reached.
-
-## Features
-
-- Supports rendering Arabic text on LCD displays (such as 16x2 or 20x4).
-- Allows writing Arabic `String` directly in the code (e.g., ```lcd.printArabic("نص عربي")```).
-- A custom-designed Arabic font that fits within the constraints of 8x5 pixels for each character.
-- Supports all common Arabic characters and ligatures (e.g., Lam-Alef).
-- Handles right-to-left text alignment and character shaping.
-- Easy-to-use API for integrating Arabic text into Arduino projects.
-- Lightweight and optimized for low-memory microcontrollers.
-- Available in two versions: **I2C** and **normal (parallel)** LCD displays.
