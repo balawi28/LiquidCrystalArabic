@@ -27,6 +27,7 @@ Contributions and feedback are always welcome.
 - Easy-to-use API for integrating Arabic text into Arduino projects.
 - Lightweight and optimized for low-memory microcontrollers.
 - Available in two versions: **I2C** and **normal (parallel)** LCD displays.
+- Efficient storage of Arabic glyphs using PROGMEM for character shapes, minimizing RAM usage.
 
 ---
 
