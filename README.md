@@ -130,6 +130,42 @@ The following mapping is used to convert Romanized characters to Arabic:
 
 ---
 
+## Public Methods
+
+
+```cpp
+LiquidCrystalArabic(uint8_t lcd_addr, uint8_t lcd_cols, uint8_t lcd_rows)
+```
+**Constructor**: Initializes the LCD with the specified I2C address, number of columns, and rows.  
+- **Parameters**:
+  - `lcd_addr`: I2C address of the LCD.
+  - `lcd_cols`: Number of columns in the LCD.
+  - `lcd_rows`: Number of rows in the LCD.
+
+```cpp
+void setArabicCursor(uint8_t x, uint8_t y)
+```
+Sets the cursor position for Arabic text, accounting for right-to-left writing.  
+- **Parameters**:
+  - `x`: Column position (0-based, from the right).
+  - `y`: Row position (0-based).
+
+```cpp
+void moveCursorToLeft()
+```
+Moves the cursor one position to the left, wrapping around to the next row if necessary. Useful for right-to-left text rendering.
+
+```cpp
+void printArabic(String text, bool isRomanized = false, bool useLigatures = true)
+```
+Prints Arabic text on the LCD. Supports both direct Arabic text and Romanized Arabic input.  
+- **Parameters**:
+  - `text`: The text to display (Arabic or Romanized).
+  - `isRomanized`: If `true`, treats the input as Romanized Arabic.
+  - `useLigatures`: If `true`, handles Arabic ligatures (e.g., "لا") as single characters.
+
+---
+
 ## Handling the 8-Character Limit
 
 LCD displays typically support only **8 custom characters** at a time, which is a challenge for rendering Arabic text due to its many character forms, where each letter has different forms (e.g., "هـ" vs. "ـهـ" vs. "ـه" vs. "ه"). Here’s how the library makes the best use of this limitation:
