@@ -161,7 +161,7 @@ LiquidCrystalArabic(uint8_t lcd_addr, uint8_t lcd_cols, uint8_t lcd_rows)
   - `lcd_rows`: Number of rows in the LCD.
 
 ```cpp
-void setArabicCursor(uint8_t x, uint8_t y)
+void setCursorArabic(uint8_t x, uint8_t y)
 ```
 Sets the cursor position for Arabic text, accounting for right-to-left writing.  
 - **Parameters**:
