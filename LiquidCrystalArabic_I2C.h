@@ -1,4 +1,3 @@
-//#include <LiquidCrystal.h>
 #include <LiquidCrystal_I2C.h>
 
 #define UTF_SPACE                 32
