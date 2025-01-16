@@ -14,6 +14,8 @@ Key features include support for all common Arabic characters and ligatures (e.g
 
 Contributions and feedback are always welcome.
 
+![1](https://github.com/user-attachments/assets/12880240-471a-43cc-8f5d-7119bdad414d)
+
 ---
 
 ## Dependencies
@@ -80,6 +82,26 @@ void setup() {
     lcd.init();           
     lcd.backlight();
     lcd.printArabic("اللغة العربية");
+}
+
+void loop() {}
+```
+
+### Displaying Predefined LCD Characters Alongside Arabic Text
+You can still print Predefined LCD Characters through the `lcd.print` method that is available in the original LiquidCrystal library. For example:
+
+```cpp
+#include "LiquidCrystalArabic_I2C.h"
+
+LiquidCrystalArabic lcd(0x27, 16, 2);
+
+void setup() {
+    Serial.begin(9600);
+    lcd.init();           
+    lcd.backlight();
+    lcd.printArabic("انجليزي"); // Direct Arabic text input
+    lcd.setCursor(0, 0); // Set the cursor to the top left cell
+    lcd.print("English"); // Print English text
 }
 
 void loop() {}
