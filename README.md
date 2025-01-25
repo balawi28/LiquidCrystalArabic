@@ -73,6 +73,9 @@ lcd.printArabic("اللغة العربية"); // Direct Arabic text input
 ```
 
 ### Demo Usage Example for I2C:
+
+<img align="right" src="https://github.com/user-attachments/assets/8489e859-9e4f-4aa3-be57-8ddae1b03ed2" style="height: 27ch;">
+
 ```cpp
 #include "LiquidCrystalArabic_I2C.h"
 
@@ -81,6 +84,23 @@ LiquidCrystalArabic lcd(0x27, 16, 2);
 void setup() {
     lcd.init();           
     lcd.backlight();
+    lcd.printArabic("اللغة العربية");
+}
+
+void loop() {}
+```
+
+### Demo Usage Example for parallel:
+
+<img align="right" src="https://github.com/user-attachments/assets/9f9ed3b5-28d7-4c4c-8756-d2811f2b3c83" style="height: 27ch;">
+
+```cpp
+#include "LiquidCrystalArabic.h"
+
+LiquidCrystalArabic lcd(12, 11, 10, 9, 8, 7);
+
+void setup() {
+    lcd.begin(16, 2);
     lcd.printArabic("اللغة العربية");
 }
 
