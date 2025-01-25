@@ -116,7 +116,6 @@ You can still print Predefined LCD Characters through the `lcd.print` method tha
 LiquidCrystalArabic lcd(0x27, 16, 2);
 
 void setup() {
-    Serial.begin(9600);
     lcd.init();           
     lcd.backlight();
     lcd.printArabic("انجليزي"); // Direct Arabic text input
@@ -137,7 +136,6 @@ For example:
 LiquidCrystalArabic lcd(0x27, 16, 2);
 
 void setup() {
-    Serial.begin(9600);
     lcd.init();           
     lcd.backlight();
     lcd.printArabic("allGo alArbeo", true); // Check the "Romanized Arabic Mapping" section to understand this mapping.
