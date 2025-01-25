@@ -74,7 +74,7 @@ lcd.printArabic("اللغة العربية"); // Direct Arabic text input
 
 ### Demo Usage Example for I2C:
 
-<img align="right" src="https://github.com/user-attachments/assets/8489e859-9e4f-4aa3-be57-8ddae1b03ed2" style="height: 27ch;">
+<img align="right" src="https://github.com/user-attachments/assets/8489e859-9e4f-4aa3-be57-8ddae1b03ed2" style="height: 26ch;">
 
 ```cpp
 #include "LiquidCrystalArabic_I2C.h"
