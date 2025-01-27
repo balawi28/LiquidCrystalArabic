@@ -419,7 +419,8 @@ private:
         const uint8_t ligaturesCount = sizeof(ligatures) / sizeof(ligatures[0]);
 
         for (uint8_t i = 0; i < ligaturesCount; i++) {
-            if (ligatures[i].right == right && ligatures[i].left == left && next != ligatures[i].halting_next) {
+            if (ligatures[i].right == right && ligatures[i].left == left &&
+            (ligatures[i].halting_next == CODE_TERMINATION || next != ligatures[i].halting_next)) {
                 return ligatures[i].ligature; // Return the ligature code
             }
         }
@@ -505,6 +506,7 @@ private:
     void arabicStrToByteArray(String str, bool useLigatures) {
         uint8_t arr_len, i, j, current_prefix, current_byte, current_byte_code, current_prefix_code, ligature, next;
         for (arr_len = 0, i = 0, j = 0; i < str.length() && j < this->lcd_cols * this->lcd_rows; i++){   
+
             current_prefix = (uint8_t) str[i];
             current_byte = (uint8_t) str[i+1];
 
@@ -514,9 +516,9 @@ private:
 
                 if (j >= 1 && useLigatures){
                     next = (i + 2 < str.length()) ? mapArabicUTFToCode(str[i+2]) : CODE_TERMINATION;
-                           
                     ligature = checkForLigature(arabic_text[j-1], current_byte_code, next);
-                        if (ligature != CODE_TERMINATION){
+
+                    if (ligature != CODE_TERMINATION){
                             arabic_text[j-1] = ligature;
                             continue;
                     }
@@ -529,7 +531,7 @@ private:
                 arabic_text[j++] = current_prefix_code;
         }
 
-        this->arabic_text_size = j;      
+        this->arabic_text_size = j;     
     }
     
     uint8_t mapAlreadyDefinedUTFToCode(uint8_t utf) {
