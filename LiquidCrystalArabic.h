@@ -420,7 +420,8 @@ private:
         const uint8_t ligaturesCount = sizeof(ligatures) / sizeof(ligatures[0]);
 
         for (uint8_t i = 0; i < ligaturesCount; i++) {
-            if (ligatures[i].right == right && ligatures[i].left == left && next != ligatures[i].halting_next) {
+             if (ligatures[i].right == right && ligatures[i].left == left && 
+                 (ligatures[i].halting_next == CODE_TERMINATION || next != ligatures[i].halting_next)) {
                 return ligatures[i].ligature; // Return the ligature code
             }
         }
@@ -517,9 +518,9 @@ private:
                     next = (i + 2 < str.length()) ? mapArabicUTFToCode(str[i+2]) : CODE_TERMINATION;
                            
                     ligature = checkForLigature(arabic_text[j-1], current_byte_code, next);
-                        if (ligature != CODE_TERMINATION){
-                            arabic_text[j-1] = ligature;
-                            continue;
+                    if (ligature != CODE_TERMINATION){
+                        arabic_text[j-1] = ligature;
+                        continue;
                     }
                 }
                 arabic_text[j++] = current_byte_code;
