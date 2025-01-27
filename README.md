@@ -138,7 +138,7 @@ LiquidCrystalArabic lcd(0x27, 16, 2);
 void setup() {
     lcd.init();           
     lcd.backlight();
-    lcd.printArabic("allGo alArbeo", true); // Check the "Romanized Arabic Mapping" section to understand this mapping.
+    lcd.printArabic("allGo alArbeo", true); // Check the "Romanized Arabic Mapping" section below
 }
 
 void loop() {}
@@ -233,9 +233,10 @@ LCD displays typically support only **8 custom characters** at a time, which is 
 2. **Ligature Handling:** Ligatures such as "لا" (which combines ل and ا) are treated as a single character, consuming only one slot despite being two characters.
 3. **Common Combinations**: Frequent Arabic combinations like "ال" (which combines ا and ل) are treated as a single character.
 4. **Leverage Already Defined Characters:** Predefined characters (e.g., space) are printed without consuming additional custom character slots.
-5. **User Control:** Users can display large texts by splitting them into smaller sections, ensuring the 8-character limit isn’t exceeded in each print call.
+5. **Kashida:** It can be used to fill in gaps and align the text.
+6. **User Control:** Users can display large texts by splitting them into smaller sections, ensuring the 8-character limit isn’t exceeded in each print call.
 
-#### Example:
+#### Example Demonstrating this Limitation:
 For the text `"بلادي بلا حروب وحصار"`, the library:
 1. **Start with an empty character set** (0/8 slots used).
 2. **Process each letter**:
